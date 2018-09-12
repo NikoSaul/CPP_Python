@@ -70,13 +70,13 @@ duree = time.time()-t0
 print("ni = a[(25 < a) & (a < 50)].size\n chrono="+str(duree))
 
 t0 = time.time()
-#ni = len([x for x in a.ravel() if 25 < x < 50])
+ni = len([x for x in a.ravel() if 25 < x < 50])
 print("nb 25<n<50="+str(ni))
 duree = time.time()-t0
 print("ni = len([x for x in a.ravel() if 25 < x < 50])\n chrono="+str(duree))
 
 t0 = time.time()
-#ni = sum(1 for i in a.ravel() if 25 < i < 50)
+ni = sum(1 for i in a.ravel() if 25 < i < 50)
 print("nb 25<n<50="+str(ni))
 duree = time.time()-t0
 print("ni = sum(1 for i in a.ravel() if 25 < i < 50)\nchrono="+str(duree))
@@ -94,7 +94,7 @@ print("ni = np.count_nonzero( a%2 == 1)\nchrono="+str(duree))
 print("************* APPLY") # faire +& à tous les nombres impaires
 # A faire. +1 à tous les impairs
 
-# SOL1
+# SOL1 : VECTORIZE
 aa = a.copy()
 
 print("nb impair avant="+str(np.count_nonzero( a%2==1)))
@@ -110,7 +110,7 @@ duree = time.time()-t0
 print("apply_along_axis. chrono="+str(duree))
 print("nb impair apres="+str(np.count_nonzero( a%2==1)))
 
-#SOL 2
+#SOL 2 LAMBDA
 a = aa.copy()
 print("\nnb impair avant="+str(np.count_nonzero( a%2==1)))
 t0 = time.time()
