@@ -125,14 +125,20 @@ print("nb impair apres="+str(np.count_nonzero( a%2==1)))
 
 print("************* PEFORMANCE")
 # Remplissez un tableau de NP patients comportants NT relevés de températures. Témpérature comprise entre 36 et 39 tirée au hasard.
+print("***creation")
 t0 = time.time()
 p = 36 + (np.random.random(  (5000,10000) ))*(39-36)
-print("shape="+str(p.shape))
-# Calculez la température moyenne des 5 patients et la ranger dans un nouveau tableau t
 t = np.empty( p.shape[0], dtype=float )
+duree = time.time()-t0
+print("chrono="+str(duree))
+
+print("shape patient="+str(p.shape))
+print("shape temperature="+str(t.shape))
+
+# Calculez la température moyenne des 5 patients et la ranger dans un nouveau tableau t
+print("***calcul")
 for i in range(p.shape[0]):
     t[i] = p[i].sum() / p.shape[1]
 #print("temperatures moyennes="+str(t))
-print(t.shape)
 duree = time.time()-t0
 print("chrono="+str(duree))
